@@ -1,57 +1,61 @@
-import { ObrasContext } from "../components/ObrasProvider.js";
-import { useState, useContext} from "react";
-
-
+import { useState, useEffect} from "react";
+import axios from "axios";
+import { GaleriaObra } from "./GaleriaObra";
 
 
 export default function Galeria(){
 
-    const { obras, setObras } = useContext(ObrasContext);
-    const { endpoint, setEndPoint } = useContext(ObrasContext);
+    const uri = "http://127.0.0.1:8000/api";
 
 
-    function handleOnChange(){
+    const [seleccion, setSeleccion] = useState("todos");
+    const [obras, setObras] = useState([]);
+            
+    useEffect(() => {
+        axios 
+          .get(uri + "/obras/" + seleccion)
+          .then((response) => {            
+            console.log(response.data);
+            setObras(response.data);
 
-    }
-
-
-    function handleOnClick(){
-       setEndPoint("obras/1");
-      
-
-    }
-
-
+          })
+          .catch((error) => {
+            console.error("Error: " + error.message);
+          });
+        
+        }, [seleccion]); 
+               
+        
+        function handleOnChange(event){           
+            setSeleccion(event.target.value);               
+        }
 
     return (
 
-    <div>
-       
-    <div className="row">
-    <div className="col-sm-12 col-md-2 col-lg-2 col-xl-2">      
+<div>
+    <div className="altura"></div> 
+    <div className="row mt-2">
+    <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">      
         <select id="selectorFiltro" 
+                name="selectorFiltro"
                 className="form-select"                 
                 aria-label="Default select example"
                 onChange={handleOnChange}>
             <option value="todos">Todos</option>
-            <option value="realismo">Realismo</option>
-            <option value="abstrato">Abstrato</option>
-            <option value="pop">Pop</option>
-            <option value="surrealista">Surrealista</option>
-            <option value="impresionismo">Impresionismo</option>
-            <option value="expresionismo">Expresionismo</option>
+            <option value="igualdad sexos">Igualdad sexos</option>
+            <option value="diversidad cultural">Diversidad cultural</option>
+            <option value="integración personas con discapacidad intelectual">Integración personas con discapacidad intelectual</option>
+            <option value="integración personas con discapacidad física">Integración personas con discapacidad física</option>
+            <option value="comunidad LGTBI">Comunidad LGTBI</option>            
         </select>
     </div>
-    <div className="col-sm-12 col-md-10 col-lg-10 col-xl-10">
-        <button onClick={handleOnClick} className="boton btn btn-primary" >Filtrar</button>
+    <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
     </div>
     </div>
-    
-        <ul>
-        {obras.map((obra) => ( 
-            <li key={obra.id}>{obra.titulo}</li>))}
-        </ul>
+    <div className="row d-flex">       
+        {obras.map((obra) => ( <GaleriaObra key={obra.id} obra={obra}></GaleriaObra>))}   
     </div>
 
+</div>
     );
 }

@@ -17,6 +17,7 @@ return (
             <ul className="navbar-nav"> 
             <li className="nav-item mx-2"><Link to="/" className="nav-link">Inicio</Link></li>
             <li className="nav-item mx-2"><Link to="/galeria" className="nav-link">Galería</Link></li>            
+            <li className="nav-item mx-2"><Link to="/registro" className="nav-link">Registro</Link></li>            
             </ul>  
         </div>       
         </nav>
