@@ -1,12 +1,28 @@
 
-
+body {
+    background-color: #ead8f3;
+}
 
 #cabecera {
     margin-top: 20px;
     margin-left: 5px;    
+   
 }
+
+#menu {
+    background-color:#ecf5ff;
+}
+
+#menuLog {
+    background-color: #ead8f3;
+}
+
+
 
 .altura{
     height: 50px;
 }
 
+.textoError {
+    color: red;
+}

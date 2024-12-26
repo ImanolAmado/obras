@@ -7,7 +7,7 @@ export default function Galeria(){
 
     const uri = "http://127.0.0.1:8000/api";
 
-
+    
     const [seleccion, setSeleccion] = useState("todos");
     const [obras, setObras] = useState([]);
             
