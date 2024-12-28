@@ -58,14 +58,14 @@ return (
                     <ul className="navbar-nav"> 
                     <li className="nav-item mx-2"><Link to="/" className="nav-link">Inicio</Link></li>
                     <li className="nav-item mx-2"><Link to="/galeria" className="nav-link">Galería</Link></li> 
-                    <li className="nav-item mx-2"><Link to="/galeria" className="nav-link">Subir obra</Link></li>
-                    <li className="nav-item mx-2"><Link to="/logout" className="nav-link">Logout</Link></li>                       
+                    <li className="nav-item mx-2"><Link to="/gestionObra" className="nav-link">Gestión obra</Link></li>
+                    <li className="nav-item mx-2"><Link to="/perfil" className="nav-link">Perfil</Link></li>                                         
                     </ul>  
                 </div>       
                 </nav>
             </div>   
             <div className='row'>
-                <div className='col-12'>
+                <div className='col-12'>                   
                 </div>        
             </div>           
         </div> 

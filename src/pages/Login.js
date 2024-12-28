@@ -16,6 +16,12 @@ const [formularioLogin, setFormularioLogin] = useState(
     }
 );
 
+let logueado = false;
+
+if (localStorage.getItem("miToken")){   
+    logueado = true;
+}
+
 useEffect(() => {
 
     // Para evitar que se ejecute al renderizar la página
@@ -30,7 +36,7 @@ useEffect(() => {
     .catch((error) => {             
         if (error != "AxiosError: Request failed with status code 422")
         {  
-        setErrorLogin("Email o password incorectos"); 
+        setErrorLogin("Email o password incorrectos"); 
         }          
     })   
 
@@ -55,6 +61,8 @@ useEffect(() => {
         setHacerLogin(true);
     }
 
+
+    if (!logueado) {
 
     return(
 
@@ -116,5 +124,16 @@ useEffect(() => {
     </div>
     </div>
     );
+
+    } else {
+    
+    return (
+    <div>
+        <br></br>
+        <h5>La sesión se ha iniciado correctamente</h5>
+    </div>    
+    );
+
+    }
 
 }

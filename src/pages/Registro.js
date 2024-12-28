@@ -31,11 +31,10 @@ useEffect(() => {
         console.log(response.data);
         
     })
-    .catch((error) => {             
-        if (error != "AxiosError: Request failed with status code 422")
-        {  
+    .catch((error) => {         
+       
         setErrorEmail("Email ya existe en la base de datos"); 
-        }          
+                 
     })
 
     .finally(() => {
@@ -126,7 +125,7 @@ return(
   <br></br><br></br>
   <div className="row">
       <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-      <h4>Introduce datos de Registro</h4>
+      <h4>Introduce datos de registro</h4>
   </div>
 
 <div className="row">

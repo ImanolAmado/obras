@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-
 export function Logout(){
 
 const navigate = useNavigate();
@@ -13,17 +12,15 @@ let miToken = "";
 
 if(localStorage.getItem('miToken')){
 miToken = localStorage.getItem('miToken');
-console.log(miToken);
 }
 
 useEffect(() => {
 
     // Para evitar que se ejecute multiples veces
-    if (hacerLogout== false) {
+    if (!hacerLogout) {
         return; 
     }
     
-
     axios.post("http://127.0.0.1:8000/api/logout",  {},
         {
             headers: {
@@ -31,30 +28,26 @@ useEffect(() => {
             },
         }
     )
-    .then((response) => {        
-        console.log(response.data);
-        localStorage.removeItem("miToken");      
+    .then((response) => {         
+        localStorage.removeItem("miToken");  
+        setHacerLogout(false); 
         navigate(0);
                        
     })
-    .catch((error) => {             
-        if (error != "AxiosError: Request failed with status code 422")
-        {  
-        console.log(error);
-       
-        }          
+    .catch((error) => {   
+        console.log(error);               
     })
     
     .finally(() => {
        setHacerLogout(false);
     });
 
-},[hacerLogout]);
+},[hacerLogout, miToken]);
 
 return (
 
 <div>
-    <br></br>
+<br></br>
 <h5>La sesión se ha cerrado correctamente</h5>
 </div>
 

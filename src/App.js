@@ -3,6 +3,7 @@ import AppRoutes from './AppRoutes';
 import Menu from './components/Menu';
 import Cabecera from './components/Cabecera';
 import { BrowserRouter } from 'react-router-dom';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <div className="container">       
         <AppRoutes/>
         </div>
+      <Footer></Footer>
         </div>
       </BrowserRouter>
      

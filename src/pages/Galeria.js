@@ -1,11 +1,11 @@
 import { useState, useEffect} from "react";
 import axios from "axios";
-import { GaleriaObra } from "./GaleriaObra";
+import { GaleriaObra } from "../components/GaleriaObra";
 
 
 export default function Galeria(){
 
-    const uri = "http://127.0.0.1:8000/api";
+    const url = "http://127.0.0.1:8000/api";
 
     
     const [seleccion, setSeleccion] = useState("todos");
@@ -13,11 +13,10 @@ export default function Galeria(){
             
     useEffect(() => {
         axios 
-          .get(uri + "/obras/" + seleccion)
+          .get(url + "/obras/" + seleccion)
           .then((response) => {            
             console.log(response.data);
             setObras(response.data);
-
           })
           .catch((error) => {
             console.error("Error: " + error.message);
@@ -55,7 +54,7 @@ export default function Galeria(){
     <div className="row d-flex">       
         {obras.map((obra) => ( <GaleriaObra key={obra.id} obra={obra}></GaleriaObra>))}   
     </div>
-
+    <div className="altura2"></div>
 </div>
     );
 }
