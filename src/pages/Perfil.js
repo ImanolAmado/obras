@@ -6,6 +6,11 @@ export default function Perfil(){
 
 let perfil = PerfilUsuario();
 
+
+// Si existen datos en localStorage, el usuario está
+// autenticado
+if (localStorage.getItem("miToken")){
+
 return (
 <div>
 <br></br>
@@ -17,5 +22,16 @@ return (
 </div>
 );
 
+} else {
+
+     // El usuario no está autenticado
+return (
+    <div>
+        <br></br>
+       <h5>No tienes autorización para visualizar esta página</h5>
+    </div>
+    );
+
+}
 
 }

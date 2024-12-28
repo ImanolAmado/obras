@@ -7,8 +7,7 @@ export default function PerfilUsuario(){
 let miToken = "";
 
 if(localStorage.getItem('miToken')){
-    miToken = localStorage.getItem('miToken');
-    console.log(miToken);
+    miToken = localStorage.getItem('miToken');    
 }
 
 const [perfil, setPerfil] = useState({});
@@ -21,7 +20,7 @@ useEffect(() => {
         return;
     }
   
-    axios.post("http://127.0.0.1:8000/api/perfil", {},
+    axios.get("http://127.0.0.1:8000/api/perfil",
         {
             headers: {
               Authorization: `Bearer ${miToken}`,

@@ -17,6 +17,7 @@ function App() {
         <div className="container">       
         <AppRoutes/>
         </div>
+        <div className='altura2'></div>
       <Footer></Footer>
         </div>
       </BrowserRouter>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 
 export default function SubirObra(){
 
+const navigate = useNavigate();
 const [errorTitulo, setErrorTitulo] = useState("");
 const [errorDescripcion, setErrorDescripcion] = useState("");
 const [errorImagen, setErrorImagen] = useState("");
@@ -38,7 +39,9 @@ useEffect(() => {
       )   
 
       .then((response) => {        
-          console.log(response.data);          
+          console.log(response.data); 
+          window.alert("Obra subida correctamente");
+          navigate(0);         
       })
       .catch((error) => {           
           console.log(error);                   
@@ -124,7 +127,7 @@ return (
     <br></br>
 <div className="row">
     <div className="col-12">
-        <h5>Gestión obras</h5>
+        <h5>Formulario obra</h5>
     </div>
 </div>
 <div className="row">

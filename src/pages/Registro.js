@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Registro(){
 
+const navigate = useNavigate();
 const [errorEmail, setErrorEmail] = useState("");
 const [errorPassword, setErrorPassword] = useState("");
 const [errorNombre, setErrorNombre] = useState("");
@@ -27,14 +29,13 @@ useEffect(() => {
   }
 
     axios.post("http://127.0.0.1:8000/api/register", formulario)
-    .then((response) => {        
-        console.log(response.data);
-        
+    .then((response) => {     
+      window.alert('Registro correcto. Bienvenid@ a "Personas con arte"');
+      navigate("/login");   
+                
     })
-    .catch((error) => {         
-       
-        setErrorEmail("Email ya existe en la base de datos"); 
-                 
+    .catch((error) => {                
+        setErrorEmail("Email ya existe en la base de datos");                  
     })
 
     .finally(() => {
@@ -71,8 +72,7 @@ function handleOnClick(event){
   passwordValido=validarPassword(formulario.password);
 
   if(nombreValido && emailValido && passwordValido) {
-  setCorrecto(true);
- 
+  setCorrecto(true);   
   }
 }
 
