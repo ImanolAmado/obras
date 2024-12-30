@@ -119,6 +119,19 @@ function validarPassword(password){
   }
 
 
+// Si existen datos en localStorage, el usuario está
+// autenticado
+if (localStorage.getItem("miToken")){
+
+return (
+  <div>
+      <br></br>
+       <h5>Usuario ya registrado</h5>
+  </div>
+  );
+
+} else {
+
 return(
 
   <div>
@@ -195,7 +208,7 @@ return(
     </div>
 </div>
 </div>
-
 );
+}
 
 }

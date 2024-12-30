@@ -28,8 +28,7 @@ useEffect(() => {
         }
       )   
 
-      .then((response) => {        
-          console.log(response.data);  
+      .then((response) => {                  
           setLlamadaRealizada(true);
           setPerfil(response.data);   
       })

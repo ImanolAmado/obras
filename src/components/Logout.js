@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export function Logout(){
-
+    
 const navigate = useNavigate();
 const [hacerLogout, setHacerLogout] = useState(true);
 let miToken = "";
@@ -34,7 +34,7 @@ useEffect(() => {
         navigate(0);
                        
     })
-    .catch((error) => {   
+    .catch((error) => {         
         console.log(error);               
     })
     

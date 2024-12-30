@@ -7,6 +7,7 @@ import { Login } from './pages/Login';
 import { Logout } from './components/Logout';
 import GestionObra from './pages/GestionObra';
 import Perfil from './pages/Perfil';
+import ModificarObra from './pages/ModificarObra';
 
 
 
@@ -22,6 +23,7 @@ export default function AppRoutes() {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/gestionObra" element={<GestionObra/>}/>
         <Route path="/perfil" element={<Perfil/>}/>
+        <Route path="/modificarObra" element={<ModificarObra/>}/>
     </Routes>  
     );
 }

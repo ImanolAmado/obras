@@ -1,11 +1,10 @@
 import SubirObra from "../components/SubirObra";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 
 export default function GestionObra(){
-
 
 let miToken = "";
 
@@ -58,8 +57,6 @@ if (localStorage.getItem("miToken")){
 
 if(existeObra) {
 
-
-
 // Función para eliminar una obra
 function EliminarObra(id){    
         axios.delete("http://127.0.0.1:8000/api/deleteObras/" + id ,
@@ -80,25 +77,27 @@ function EliminarObra(id){
 }
 
 
-
-function handleOnClick(){
+function handleOnClick(){    
     window.alert("¿Deseas eliminar obra?");
     EliminarObra(obra.id);      
 }
 
- 
+
 return (
 <div>
     <div className="altura"></div>
-    <h4>Este usuario tiene una obra y lo mostraré aquí</h4>
-    <h5>Obra con Id:{obra.id}</h5>
+    <h4>Obra vinculada a la cuenta:</h4>    
         <h5>Título: {" " + obra.titulo}</h5>
         <h5>Categoria:{" " + obra.categoria}</h5>
         <p>Descripción: {" " + obra.descripcion}</p>
         <img src={obra.imagen} width="300px" alt="foto obra"></img>
     <div className="altura"></div>
   
-    <button className="btn btn-primary" onClick={handleOnClick}>Eliminar</button>
+    <button className="btn btn-danger" onClick={handleOnClick}>Eliminar</button>
+
+    <Link to={"/modificarObra"}>
+    <button className="btn btn-secondary mx-4" >Modificar</button>
+    </Link>          
 </div>
 );
 

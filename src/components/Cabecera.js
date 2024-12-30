@@ -9,7 +9,6 @@ export default function Cabecera(){
             <img src="/inclusion2.png" width={350} alt="imagen logo"></img>
         </div>
     </div>
-    );   
-    
+    );       
     
     }
