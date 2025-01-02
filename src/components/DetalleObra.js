@@ -16,7 +16,7 @@ export function DetalleObra(){
         axios 
           .get(uri + "/obras/todos/" + id)
           .then((response) => {            
-            console.log(response.data);
+            
             setObra(response.data);       
 
           })

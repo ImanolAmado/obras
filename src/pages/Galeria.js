@@ -5,8 +5,8 @@ import { GaleriaObra } from "../components/GaleriaObra";
 
 export default function Galeria(){
 
-    const url = "http://127.0.0.1:8000/api";
-
+    const url = "http://127.0.0.1:8000/api"; 
+  
     
     const [seleccion, setSeleccion] = useState("todos");
     const [obras, setObras] = useState([]);
@@ -15,7 +15,7 @@ export default function Galeria(){
         axios 
           .get(url + "/obras/" + seleccion)
           .then((response) => {            
-            console.log(response.data);
+            
             setObras(response.data);
           })
           .catch((error) => {

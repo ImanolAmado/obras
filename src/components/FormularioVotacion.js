@@ -28,8 +28,8 @@ export default function FormularioVotacion({id}){
                 },
             }    
         )
-        .then((response) => {        
-            console.log(response.data); 
+        .then((response) => {       
+            
             if(response.data===true){
             setObraNoVotada(false);                
             } else setObraNoVotada(true);                         
@@ -43,8 +43,8 @@ export default function FormularioVotacion({id}){
 
 // Función onClick que envía voto a la API
 function handleOnClick(event){    
-    event.preventDefault();    
-    console.log("el voto es: " + voto.voto)
+    event.preventDefault(); 
+
     if(localStorage.getItem('miToken')){
       let miToken = localStorage.getItem('miToken');
      
@@ -56,7 +56,7 @@ function handleOnClick(event){
         }
       )
       .then((response) => {        
-          console.log(response.data); 
+          
           window.alert("Voto emitido correctamente");  
           setObraNoVotada(false);            
       })
