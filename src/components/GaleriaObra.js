@@ -8,8 +8,9 @@ return(
   <img src={obra.imagen} height={240} className="card-img-top" alt="imagen obra"></img>
   <div className="card-body">
     <h5 className="card-title">{obra.titulo}</h5>
+    <h6> Total Votos:{" " + obra.total_votos}</h6>
     <p>Categoria: {obra.categoria}</p>
-    <p className="card-text">{obra.descripcion}</p>
+    <p className="card-text">{obra.descripcion}</p>    
     <Link to={"/galeria/" + obra.id}>
     <button className="btn btn-primary">Ver detalles</button>
     </Link>
