@@ -78,8 +78,10 @@ function EliminarObra(id){
 
 
 function handleOnClick(){    
-    window.alert("¿Deseas eliminar obra?");
-    EliminarObra(obra.id);      
+    let respuesta=window.confirm("¿Deseas eliminar obra?");
+    if(respuesta){
+    EliminarObra(obra.id); 
+    }    
 }
 
 

@@ -15,7 +15,7 @@ export default function Galeria(){
         axios 
           .get(url + "/obras/" + seleccion)
           .then((response) => {            
-            
+           
             setObras(response.data);
           })
           .catch((error) => {

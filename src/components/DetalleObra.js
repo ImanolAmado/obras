@@ -17,7 +17,7 @@ export function DetalleObra(){
           .get(uri + "/obras/todos/" + id)
           .then((response) => {            
             
-            setObra(response.data);       
+            setObra(response.data[0]);       
 
           })
           .catch((error) => {
@@ -31,6 +31,14 @@ export function DetalleObra(){
           existeToken=true;
         }
     
+
+        let tieneVoto=true;
+        // Se controla si la obra tiene votos o no para
+        // no pintar "undefined" en pantalla
+        if(obra.total_votos==null){
+        tieneVoto=false;
+        } 
+
 return(
 <>
   <div className="altura"></div>
@@ -39,6 +47,7 @@ return(
         <h5>Obra Id:{" " + id}</h5>
         <h5>Titulo: {" " + obra.titulo}</h5>
         <h5>Categoria:{" " + obra.categoria}</h5>
+        {tieneVoto ? <h5>Total Votos: {" " + obra.total_votos}</h5> : <h5>Total Votos: 0</h5>}
         <p>Descripción: {" " + obra.descripcion}</p>
         <img src={obra.imagen} width="400px" alt="foto obra"></img>
     </div>

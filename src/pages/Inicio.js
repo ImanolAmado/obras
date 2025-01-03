@@ -8,13 +8,12 @@ export default function Inicio(){
     const [obras, setObras] = useState([]);      
             
     let miToken = localStorage.getItem("miToken");
-    console.log(miToken);
-
+   
     useEffect(() => {
         axios 
           .get("http://127.0.0.1:8000/api/masVotadas")
           .then((response) => {            
-            console.log(response.data);
+            
             setObras(response.data);
           })
           .catch((error) => {
